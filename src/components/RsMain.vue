@@ -1,297 +1,313 @@
 <template>
-  <v-container >
-    <v-card elevation="0">
-        <v-row class="pa-0">
-          <v-col cols="4" class="px-0" >
-            <v-card elevation="0" >
-              <p class="text-h3 text--darken-4 purple--text">
-                <span>{{proinfo.name_CN}}</span>
-                <span class="text-h6 font-italic"> {{proinfo.name_EN}} </span>
+  <v-container>
+    <v-card elevation="0" width="740">
+      <v-row class="pa-0">
+        <v-col cols="4" class="px-0">
+          <v-card elevation="0">
+            <p class="text-h3 text--darken-4 purple--text">
+              <span>{{ proinfo.name_CN }}</span>
+              <span class="text-h6 font-italic"> {{ proinfo.name_EN }} </span>
+            </p>
+            <p>{{ proinfo.title }}</p>
+            <v-card elevation="0" class="mt-4">
+              <p class="text-h5 text--darken-4 purple--text">联系方式</p>
+              <v-text-field
+                :value="proinfo.email"
+                prepend-icon="mdi-email-outline"
+                dense
+                disabled
+              ></v-text-field>
+              <v-text-field
+                :value="proinfo.github"
+                prepend-icon="mdi-github"
+                dense
+                disabled
+              ></v-text-field>
+              <v-text-field
+                :value="proinfo.base"
+                prepend-icon="mdi-map-marker"
+                dense
+                disabled
+              ></v-text-field>
+            </v-card>
+            <v-card elevation="0" class="mt-4">
+              <p class="text-h5 text--darken-4 purple--text">个人技能</p>
+              <v-chip
+                v-for="(item, i) in proskill"
+                :key="i"
+                small
+                class="ma-1"
+                color="indigo darken-1"
+                label
+                text-color="white"
+              >
+                {{ item }}
+              </v-chip>
+            </v-card>
+            <v-card elevation="0" class="mt-4">
+              <p class="text-h5 text--darken-4 purple--text">编程&框架</p>
+              <v-chip
+                v-for="(item, i) in softskill"
+                :key="i"
+                small
+                class="ma-1"
+                color="indigo darken-1"
+                label
+                text-color="white"
+              >
+                {{ item }}
+              </v-chip>
+            </v-card>
+            <v-card elevation="0" class="mt-4">
+              <p class="text-h5 text--darken-4 purple--text">关键词</p>
+              <v-row v-for="(item, i) in keywords" :key="i">
+                <v-col cols="4" class="py-1">
+                  <v-chip
+                    class="px-2"
+                    x-small
+                    color="grey darken-1"
+                    label
+                    text-color="white"
+                  >
+                    {{ item.name }}
+                  </v-chip>
+                </v-col>
+                <v-col class="py-1">
+                  <v-progress-linear
+                    height="10"
+                    class="mt-2"
+                    :value="item.value"
+                    color="green accent-4"
+                    rounded
+                  />
+                </v-col>
+              </v-row>
+            </v-card>
+            <v-card elevation="0" class="mt-4">
+              <p class="text-h5 text--darken-4 purple--text">教育&语言</p>
+              <v-text-field
+                value="无锡职业技术学院"
+                prepend-icon="mdi-school-outline"
+                dense
+                disabled
+              ></v-text-field>
+              <v-row>
+                <v-col cols="4" class="py-1">
+                  <v-chip
+                    x-small
+                    color="grey darken-1"
+                    label
+                    text-color="white"
+                  >
+                    英语
+                  </v-chip>
+                </v-col>
+                <v-col class="py-1">
+                  <v-progress-linear
+                    height="10"
+                    class="mt-2"
+                    value="50"
+                    color="green accent-4"
+                    rounded
+                  />
+                </v-col>
+              </v-row>
+            </v-card>
+            <v-card elevation="0" class="mt-4">
+              <p class="text-h5 text--darken-4 purple--text">RoWarlock的思想</p>
+              <p class="text-caption">
+                RoWarlock从无到有，皆受HP的影响，从最初的模仿到最终的独立发展，无不刻上了它的思想烙印
               </p>
-              <p>{{proinfo.title}}</p>
-              <v-card elevation="0" class="mt-4">
-                <p class="text-h5 text--darken-4 purple--text">联系方式</p>
-                <v-text-field
-                    :value="proinfo.email"
-                    prepend-icon="mdi-email-outline"
-                    dense
-                    disabled
-                ></v-text-field>
-                <v-text-field
-                    :value="proinfo.github"
-                    prepend-icon="mdi-github"
-                    dense
-                    disabled
-                ></v-text-field>
-                <v-text-field
-                    :value="proinfo.base"
-                    prepend-icon="mdi-map-marker"
-                    dense
-                    disabled
-                ></v-text-field>
-              </v-card>
-              <v-card elevation="0" class="mt-4">
-                <p class="text-h5 text--darken-4 purple--text">个人技能</p>
-                <v-chip
-                    v-for="(item, i) in proskill"
+              <v-list flat disabled>
+                <v-list-item-group color="primary">
+                  <v-list-item
+                    v-for="(item, i) in rowarlock"
                     :key="i"
-                    small
-                    class="ma-1"
-                    color="indigo darken-1"
-                    label
-                    text-color="white"
-                >
-                  {{ item }}
-                </v-chip>
-              </v-card>
-              <v-card elevation="0" class="mt-4">
-                <p class="text-h5 text--darken-4 purple--text">编程&框架</p>
-                <v-chip
-                    v-for="(item, i) in softskill"
-                    :key="i"
-                    small
-                    class="ma-1"
-                    color="indigo darken-1"
-                    label
-                    text-color="white"
-                >
-                  {{ item }}
-                </v-chip>
-              </v-card>
-              <v-card elevation="0" class="mt-4">
-                <p class="text-h5 text--darken-4 purple--text">关键词</p>
-                <v-row v-for="(item, i) in keywords" :key="i">
-                  <v-col cols="4" class="py-1">
-                    <v-chip
-                        class="px-2"
-                        x-small
-                        color="grey darken-1"
-                        label
-                        text-color="white"
-                    >
-                      {{ item.name }}
-                    </v-chip>
-                  </v-col>
-                  <v-col class="py-1">
-                    <v-progress-linear
-                        height="10"
-                        class="mt-2"
-                        :value="item.value"
-                        color="green accent-4"
-                        rounded
-                    />
-                  </v-col>
-                </v-row>
-              </v-card>
-              <v-card elevation="0" class="mt-4">
-                <p class="text-h5 text--darken-4 purple--text">教育&语言</p>
-                <v-text-field
-                    value="无锡职业技术学院"
-                    prepend-icon="mdi-school-outline"
                     dense
-                    disabled
-                ></v-text-field>
-                <v-row>
-                  <v-col cols="4" class="py-1">
-                    <v-chip
-                        x-small
-                        color="grey darken-1"
-                        label
-                        text-color="white"
-                    >
-                      英语
-                    </v-chip>
-                  </v-col>
-                  <v-col class="py-1">
-                    <v-progress-linear
-                        height="10"
-                        class="mt-2"
-                        value="50"
+                    class="px-0"
+                  >
+                    <v-list-item-icon class="mr-1 ml-0">
+                      <v-icon
+                        v-text="item.icon"
+                        small
                         color="green accent-4"
-                        rounded
-                    />
-                  </v-col>
-                </v-row>
-              </v-card>
-              <v-card elevation="0" class="mt-4">
-                <p class="text-h5 text--darken-4 purple--text">RoWarlock的思想</p>
-                <p class="text-caption">RoWarlock从无到有，皆受HP的影响，从最初的模仿到最终的独立发展，无不刻上了它的思想烙印</p>
-                <v-list flat disabled>
+                      ></v-icon>
+                    </v-list-item-icon>
+                      <p class="text-overline mb-0">
+                        {{item.text}}
+                      </p>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-card>
+          </v-card>
+        </v-col>
+        <v-col class="px-0">
+          <v-card elevation="0">
+            <v-card-title class="py-0">
+              <p class="text-h5 text--darken-4 purple--text">个人简介</p>
+            </v-card-title>
+            <v-card-text class="pb-0">
+              <v-alert
+                border="left"
+                colored-border
+                color="deep-purple accent-4"
+                elevation="0"
+                dense
+              >
+                <v-list disabled dense>
                   <v-list-item-group color="primary">
-                    <v-list-item v-for="(item, i) in rowarlock" :key="i" dense class="px-0">
-                      <v-list-item-icon class="mr-1">
-                        <v-icon v-text="item.icon" small color="green accent-4"></v-icon>
+                    <v-list-item v-for="(item, i) in profile" :key="i" dense>
+                      <v-list-item-icon class="mr-4">
+                        <v-icon v-text="item.icon" color="pink lighten-1" />
                       </v-list-item-icon>
-                      <v-list-item-content>
-                        <v-list-item-title  class="text-overline"
-                            v-text="item.text"
-                        ></v-list-item-title>
-                      </v-list-item-content>
+                      <p class="my-2 text-caption">{{ item.text }}</p>
                     </v-list-item>
                   </v-list-item-group>
                 </v-list>
-              </v-card>
-            </v-card>
-          </v-col>
-          <v-col class="px-0">
-            <v-card elevation="0">
-              <v-card-title class="py-0">
-                <p class="text-h5 text--darken-4 purple--text">个人简介</p>
-              </v-card-title>
-              <v-card-text class="pb-0">
-                <v-alert
-                    border="left"
-                    colored-border
-                    color="deep-purple accent-4"
-                    elevation="0"
-                    dense
-                >
-                  <v-list flat disabled>
-                    <v-list-item-group color="primary">
-                      <v-list-item v-for="(item, i) in profile" :key="i" dense>
-                        <v-list-item-icon class="mr-4">
+              </v-alert>
+            </v-card-text>
+          </v-card>
+          <v-card elevation="0">
+            <v-card-title class="py-0">
+              <p class="text-h5 text--darken-4 purple--text">工作经历</p>
+            </v-card-title>
+            <v-card-text class="pb-0">
+              <v-alert
+                border="left"
+                colored-border
+                color="green accent-4"
+                elevation="0"
+                dense
+              >
+                <v-list dense disabled>
+                  <v-list-item v-for="(item, i) in experience" :key="i" dense>
+                    <v-card elevation="0" class="pl-2 py-4">
+                      <v-row class="my-0">
+                        <v-col cols="1" class="py-0 px-0">
                           <v-icon v-text="item.icon" />
-                        </v-list-item-icon>
-                        <v-list-item-content >
-                          <v-list-item-title  v-text="item.text" />
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list-item-group>
-                  </v-list>
-                </v-alert>
-              </v-card-text>
-            </v-card>
-            <v-card elevation="0" >
-              <v-card-title class="py-0">
-                <p class="text-h5 text--darken-4 purple--text">工作经历</p>
-              </v-card-title>
-              <v-card-text class="pb-0">
-                <v-alert
-                    border="left"
-                    colored-border
-                    color="green accent-4"
-                    elevation="0"
-                    dense
-                >
-                  <v-list flat disabled>
-                    <v-list-item-group color="primary">
-                      <v-list-item v-for="(item, i) in experience" :key="i" dense>
-                        <v-list-item-icon class="mr-4">
-                          <v-icon v-text="item.icon" />
-                        </v-list-item-icon>
-                        <v-list-item-content>
-                          <v-list-item-title
-                              class="text-h6 pa-1"
-                              v-text="item.text"
-                          ></v-list-item-title>
-                          <v-list-item-content>
-                            <v-row class="mt-0">
-                              <v-col class="py-1">
-                                <p>
-                                <span class="font-weight-black font-italic"
-                                >公司:
-                                </span>
-                                  <span>{{ item.content.company }}</span>
-                                </p>
-                              </v-col>
-                              <v-col class="py-1">
-                                <p>
-                                <span class="font-weight-black font-italic"
-                                >部门:
-                                </span>
-                                  <span>{{ item.content.dept }}</span>
-                                </p></v-col
+                        </v-col>
+                        <v-col class="py-0">
+                          <p class="text-h6 mt-n1 my-0">{{ item.text }}</p>
+                        </v-col>
+                      </v-row>
+                      <v-row class="my-1">
+                        <v-row class="mt-0">
+                          <v-col class="py-1">
+                            <p>
+                              <span class="font-weight-black font-italic pr-3"
+                                >公司:</span
                               >
-                              <v-col class="py-1">
-                                <p>
-                                <span class="font-weight-black font-italic"
-                                >时间:
-                                </span>
-                                  <span>{{ item.content.datetime }}</span>
-                                </p>
-                              </v-col>
-                            </v-row>
-                            <v-row class="mt-0">
-                              <v-col class="py-1">
-                                <p class="font-weight-black font-italic">简介:</p>
-                                <p class="text-body-2">{{ item.content.desc }}</p>
-                              </v-col>
-                            </v-row>
-                            <v-row class="mt-0">
-                              <v-col class="py-1">
-                                <p class="font-weight-black font-italic">
-                                  工作内容:
-                                </p>
-                                <p class="text-body-2" v-for="(one, j) in item.content.todo" :key="j">
-                                  {{ one }}
-                                </p>
-                              </v-col>
-                            </v-row>
-                          </v-list-item-content>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list-item-group>
-                  </v-list>
-                </v-alert>
-              </v-card-text>
-            </v-card>
-            <v-card elevation="0" >
-              <v-card-title class="py-0">
-                <p class="text-h5 text--darken-4 purple--text">项目经历</p>
-              </v-card-title >
-              <v-card-text class="pb-0">
-                <v-alert
-                    border="left"
-                    colored-border
-                    color="indigo accent-4"
-                    elevation="0"
-                    dense
-                >
-                  <v-list flat disabled>
-                    <v-list-item-group color="primary">
-                      <v-list-item v-for="(item, i) in projects" :key="i" dense>
-                        <v-list-item-icon class="mr-4">
+                              <span>{{ item.content.company }}</span>
+                            </p>
+                          </v-col>
+                          <v-col class="py-1">
+                            <p>
+                              <span class="font-weight-black font-italic pr-3"
+                                >部门:</span
+                              >
+                              <span>{{ item.content.dept }}</span>
+                            </p></v-col
+                          >
+                        </v-row>
+                        <v-row class="mt-0">
+                          <v-col class="py-1">
+                            <p>
+                              <span class="font-weight-black font-italic pr-3"
+                                >时间:</span
+                              >
+                              <span>{{ item.content.datetime }}</span>
+                            </p>
+                          </v-col>
+                        </v-row>
+                        <v-row class="mt-0">
+                          <v-col class="py-1">
+                            <p class="font-weight-black font-italic">简介:</p>
+                            <p class="text-caption">{{ item.content.desc }}</p>
+                          </v-col>
+                        </v-row>
+                        <v-row class="mt-0">
+                          <v-col class="py-1">
+                            <p class="font-weight-black font-italic">
+                              工作内容:
+                            </p>
+                            <p
+                              class="text-body-2"
+                              v-for="(one, j) in item.content.todo"
+                              :key="j"
+                            >
+                              {{ one }}
+                            </p>
+                          </v-col>
+                        </v-row>
+                      </v-row>
+                    </v-card>
+                  </v-list-item>
+                </v-list>
+              </v-alert>
+            </v-card-text>
+          </v-card>
+          <v-card elevation="0">
+            <v-card-title class="py-0">
+              <p class="text-h5 text--darken-4 purple--text">项目经历</p>
+            </v-card-title>
+            <v-card-text class="pb-0">
+              <v-alert
+                border="left"
+                colored-border
+                color="indigo accent-4"
+                elevation="0"
+                dense
+              >
+                <v-list dense disabled>
+                  <v-list-item v-for="(item, i) in projects" :key="i" dense>
+                    <v-card elevation="0" class="pl-2 py-4">
+                      <v-row class="my-0">
+                        <v-col cols="1" class="py-0 px-0">
                           <v-icon v-text="item.icon" />
-                        </v-list-item-icon>
-                        <v-list-item-content>
-                          <v-list-item-title
-                              class="text-h6 pa-1"
-                              v-text="item.text"
-                          ></v-list-item-title>
-                          <v-list-item-content>
-                            <v-row class="mt-0">
-                              <v-col class="py-1">
-                                <v-btn
-                                    x-small
-                                    v-for="(one, j) in item.content.tech"
-                                    :key="j"
-                                    depressed
-                                    disabled
-                                    class="mr-2">
-                                  {{ one }}
-                                </v-btn>
-                              </v-col>
-                            </v-row>
-                            <v-row class="mt-0">
-                              <v-col class="py-1">
-                                <p class="font-weight-black font-italic">
-                                  项目职责:
-                                </p>
-                                <p class="text-body-2 mb-2" v-for="(two, k) in item.content.todo" :key="k">
-                                  {{ two }}
-                                </p>
-                              </v-col>
-                            </v-row>
-                          </v-list-item-content>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list-item-group>
-                  </v-list>
-                </v-alert>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
+                        </v-col>
+                        <v-col class="py-0">
+                          <p class="text-h6 mt-n1 my-0">{{ item.text }}</p>
+                        </v-col>
+                      </v-row>
+                      <v-row class="my-0">
+                        <v-row class="my-0">
+                          <v-col class="py-1">
+                            <v-btn
+                              x-small
+                              v-for="(one, j) in item.content.tech"
+                              :key="j"
+                              depressed
+                              disabled
+                              class="mr-2 mt-2"
+                            >
+                              {{ one }}
+                            </v-btn>
+                          </v-col>
+                        </v-row>
+                        <v-row class="mt-0">
+                          <v-col class="py-1">
+                            <p class="font-weight-black font-italic">
+                              项目职责:
+                            </p>
+                            <p
+                              class="text-body-2 mb-2"
+                              v-for="(two, k) in item.content.todo"
+                              :key="k"
+                            >
+                              {{ two }}
+                            </p>
+                          </v-col>
+                        </v-row>
+                      </v-row>
+                    </v-card>
+                  </v-list-item>
+                </v-list>
+              </v-alert>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-card>
   </v-container>
 </template>
@@ -302,14 +318,14 @@ export default {
   data() {
     return {
       // 个人信息
-      proinfo:{
-        name_CN:'冯涛',
-        name_EN:'Nate Ford',
-        title:'自动化测试开发工程师(SDET)',
-        tel:'17701503218',
-        email:'fengtao.1314520@163.com',
-        github:'github.com/Fengtao1314520',
-        base:'常州、无锡'
+      proinfo: {
+        name_CN: '冯涛',
+        name_EN: 'Nate Ford',
+        title: '全栈&测试开发工程师(SDET)',
+        tel: '17701503218',
+        email: 'fengtao.1314520@163.com',
+        github: 'github.com/Fengtao1314520',
+        base: '常州、无锡',
       },
       // 个人技能
       proskill: [
@@ -418,7 +434,7 @@ export default {
           content: {
             company: '梅特勒·托利多',
             dept: '商衡事业部',
-            datetime: '17~至今',
+            datetime: '2017-02~至今',
             desc: 'PC上位机包含Web版和桌面端以及云端，旨在PC端对嵌入式秤、PC秤进行数据管理，秤管理、各类自动化执行以及数据回传保存和生成报表',
             todo: [
               '作为全栈测试工程师，提供自动化测试工具的开发、测试和使用; 日常软件释放时手动、自动化测试; Case的设计、撰写; 针对客户的技术支持',
@@ -429,9 +445,9 @@ export default {
           icon: 'mdi-map-marker-circle',
           text: '自动化测试工程师',
           content: {
-            company: '赞奇科技',
+            company: '常州赞奇科技',
             dept: '测试部',
-            datetime: '15-08~17-02',
+            datetime: '2015-08~2017-02',
             desc: '专业云平台，提供私有、公有云渲染服务,包含集群、客户端、web端控制台等软件',
             todo: [
               '作为自动化测试工程师，提供UI自动化测试工具的开发、测试和使用; 提供性能测试的工具开发、测试和使用',
@@ -444,7 +460,7 @@ export default {
           content: {
             company: '文思海辉',
             dept: '游戏基地、展讯、HP',
-            datetime: '11-02~15-08',
+            datetime: '2011-02~2015-08',
             desc: '国内最大的离岸服务外包公司; 游戏基地为江苏移动的移动端手机游戏APP商城; 展讯为展讯芯片兼容与APP测试; HP为HP scan自动化工具开发和自动化测试',
             todo: [
               '1.作为测试工程师，测试游戏基地项目内的手机游戏APP',
@@ -513,17 +529,17 @@ export default {
           icon: 'mdi-card-bulleted-outline',
           text: '文思海辉-HP scan APP自动化测试',
           content: {
-            tech: ['Powershell', '.NET C#', 'Calabash', 'Cucumber','Ruby'],
+            tech: ['Powershell', '.NET C#', 'Calabash', 'Cucumber', 'Ruby'],
             todo: [
               '1.基于HP内部自动化测试工具开发PC端的测试脚本',
               '2.开发APP端scan软件的自动化测试工具和脚本',
-              '3.开发自动化测试执行工具'
+              '3.开发自动化测试执行工具',
             ],
           },
         },
       ],
       // rowarlock影响
-      rowarlock:[
+      rowarlock: [
         {
           icon: 'mdi-atom-variant',
           text: '元素集、参数、操作三部分均逻辑分离',
@@ -556,8 +572,7 @@ export default {
           icon: 'mdi-atom-variant',
           text: 'B/S架构的RoWarlock在coding中',
         },
-      ]
-
+      ],
     };
   },
 };
