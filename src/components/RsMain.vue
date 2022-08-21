@@ -4,7 +4,7 @@
       <v-row class="pa-0">
         <v-col cols="3" class="px-0">
           <v-card elevation="0">
-            <p class="text-h3 text--darken-4 purple--text">
+            <p class="text-h3 text--darken-4 purple--text" @click="changeToSample">
               <span>{{ proinfo.name_CN }}</span>
               <span class="text-h6 font-italic"> {{ proinfo.name_EN }} </span>
             </p>
@@ -561,6 +561,12 @@ export default {
       ],
     };
   },
+  methods:{
+    // 更改简单模式(更加简洁)
+    changeToSample(){
+      this.$emit('changeToSample',true);
+    }
+  }
 };
 </script>
 
