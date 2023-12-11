@@ -1,6 +1,6 @@
 <template>
-  <v-app :full-height="true">
-    <v-app-bar scroll-behavior="elevate" color="deep-purple-accent-2" :flat="true">
+  <v-app >
+    <v-app-bar density="compact" color="deep-purple-accent-2" :flat="true" :absolute="true">
       <v-app-bar-title class="font-weight-bold">
         <v-row class="ma-0">
           <v-icon @click="changeToSampleFunc" class="mr-4">
