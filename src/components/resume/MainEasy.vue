@@ -50,14 +50,10 @@
           </v-card-title>
           <v-card-text>
             <v-row class="ma-0">
-              <div>
-                <v-icon small class="mr-2">mdi-school-outline</v-icon>
-                <span>江苏理工学院 (2022~2024)</span>
-                <span class="font-italic font-weight-medium">[成考]</span>
-              </div>
-              <div class="ml-8">
-                <v-icon small class="mr-2">mdi-school-outline</v-icon>
-                <span>无锡职业技术学院 (2007~2010)</span>
+              <div v-for="(item, i) in localEducation" :key="i" class="mr-8">
+                <v-icon small class="mr-2">{{item.icon}}</v-icon>
+                <span>{{item.school}}({{item.start}}~{{item.end}})</span>
+                <span class="font-italic font-weight-medium">[{{item.degree}}]</span>
               </div>
             </v-row>
           </v-card-text>
@@ -159,12 +155,14 @@ import { experience } from '@/scripts/experience'
 import { profile } from '@/scripts/profile'
 import { information } from '@/scripts/information'
 import { project } from '@/scripts/project'
+import {education} from "@/scripts/education";
 import { ref } from 'vue'
 
 const localExperience = ref(experience)
 const localProfile = ref(profile)
 const localInformation = ref(information)
 const localProject = ref(project)
+const localEducation = ref(education)
 </script>
 
 <style scoped></style>

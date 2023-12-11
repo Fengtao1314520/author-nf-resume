@@ -69,11 +69,11 @@
               <v-card variant="flat" class="my-2">
                 <p class="text-h6 text--darken-4 text-purple-darken-4">关键词</p>
                 <v-row v-for="(item, i) in keyWords" :key="i" class="ma-0">
-                  <v-col cols="4" class="py-0 px-0">
+                  <v-col cols="5" class="py-0">
                     <v-chip
-                      small
+                      size="small"
                       density="compact"
-                      class="ma-1 font-weight-bold text-caption"
+                      class="font-weight-bold text-caption"
                       color="orange-accent-4"
                       variant="flat"
                       :label="true"
@@ -94,14 +94,10 @@
               </v-card>
               <v-card variant="flat">
                 <p class="text-h6 text--darken-4 text-purple-darken-4">教育&语言</p>
-                <div>
-                  <v-icon size="x-small" class="mr-2">mdi-school-outline</v-icon>
-                  <span class="text-caption">江苏理工学院 (2022~2024)</span>
-                  <span class="text-caption font-italic font-weight-medium">[成考]</span>
-                </div>
-                <div>
-                  <v-icon size="x-small" class="mr-2">mdi-school-outline</v-icon>
-                  <span class="text-caption">无锡职业技术学院 (2007~2010)</span>
+                <div v-for="(item, i) in localEducation" :key="i" class="mr-8">
+                  <v-icon size="x-small" class="mr-2">{{item.icon}}</v-icon>
+                  <span>{{item.school}}({{item.start}}~{{item.end}})</span>
+                  <span class="font-italic font-weight-medium">[{{item.degree}}]</span>
                 </div>
                 <v-row class="ma-0">
                   <v-col cols="2" class="px-0 py-0">
@@ -242,6 +238,7 @@ import { experience } from '@/scripts/experience'
 import { profile } from '@/scripts/profile'
 import { information } from '@/scripts/information'
 import { project } from '@/scripts/project'
+import {education} from "@/scripts/education";
 import { keywords, personalskill, softwareskill } from '@/scripts/gorgeousLabel'
 import { ref } from 'vue'
 
@@ -251,6 +248,7 @@ const localInformation = ref(information)
 const localProject = ref(project)
 const personalSkill = ref(personalskill)
 const softwareSkill = ref(softwareskill)
+const localEducation = ref(education)
 const keyWords = ref(keywords)
 </script>
 
