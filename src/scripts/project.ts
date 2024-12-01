@@ -44,8 +44,28 @@ export const project = [
   },
   {
     icon: "mdi-card-bulleted-outline",
+    text: "IND590",
+    datetime: "2024-02~至今",
+    company: "梅特勒 托利多 (标准衡器)",
+    position: "嵌入式仪表Web开发工程师",
+    desc: "IND590为梅特勒托利多的工业衡器的最新一代旗舰仪表终端, 可以对Analog、PowerCell、SiscPro秤台进行管理，支持PLC功能，并提供异常强大的数据处理功能。",
+    content: {
+      tech: ["C/C++", "TypeScript", "Vue.JS", "Node.JS"],
+      todo: [
+        "1.根据产品需求,开发嵌入式仪表Web端功能",
+        "2.根据Global UI 团队需求，改进Web端性能与样式",
+        "3.根据产品需求,开发和改进仪表终端内Web Server",
+      ],
+      done: [
+        "1.提升了IND590项目的Web端开发效率和水平",
+        "2.改进了IND590项目的Web端不合理需求，并提出了修改方案",
+      ],
+    },
+  },
+  {
+    icon: "mdi-card-bulleted-outline",
     text: "MTStar/Scale Manager",
-    datetime: "2017-02~至今",
+    datetime: "2017-02~2024-02",
     company: "梅特勒 托利多 (商衡事业部)",
     position: "全栈测试工程师",
     desc: "MTStar/Scale Manager为梅特勒托利多的商用衡器的PC端管理软件, 可以对电子秤进行数据管理, 秤管理, 秤设置等操作, 并可对秤进行远程操作与管理。并支持电子秤数据的导入导出进行计划管理。",
