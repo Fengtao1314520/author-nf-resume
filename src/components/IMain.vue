@@ -1,9 +1,14 @@
 <template>
-  <div v-if="changesample === false">
-    <main-gorgeous />
+  <div v-if="changeEn===true">
+    <div v-if="changeSample === false">
+      <main-gorgeous />
+    </div>
+    <div v-else>
+      <main-easy />
+    </div>
   </div>
   <div v-else>
-    <main-easy />
+    <main-easy-en/>
   </div>
 </template>
 
@@ -11,18 +16,30 @@
 import MainEasy from '@/components/resume/MainEasy.vue'
 import MainGorgeous from '@/components/resume/MainGorgeous.vue'
 import { ref, watch } from 'vue'
+import MainEasyEn from "@/components/resume/MainEasyEn.vue";
 
 const props = defineProps({
-  changeToSample: Boolean
+  changeToSample: Boolean,
+  changeToEn: Boolean
 })
 
-const changesample = ref(true)
+const changeSample = ref(true)
+const changeEn = ref(false)
 
 // 监听changeToSample
 watch(
   () => props.changeToSample,
   (value) => {
-    changesample.value = value
+    changeSample.value = value
+  },
+  { immediate: true, deep: true }
+)
+
+// 监听changeToEn
+watch(
+  () => props.changeToEn,
+  (value) => {
+    changeEn.value=value
   },
   { immediate: true, deep: true }
 )
