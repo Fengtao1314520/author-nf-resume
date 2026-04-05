@@ -69,7 +69,7 @@
               <v-card variant="flat" class="my-2">
                 <p class="text-h6 text--darken-4 text-purple-darken-4">关键词</p>
                 <v-row v-for="(item, i) in keyWords" :key="i" class="ma-0">
-                  <v-col cols="5" class="py-0">
+                  <v-col cols="9" class="py-0">
                     <v-chip
                       size="small"
                       density="compact"

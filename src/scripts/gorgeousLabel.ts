@@ -9,13 +9,17 @@ export const personalskill = [
     'Web自动化测试',
     'APP自动化测试',
     '桌面自动化测试',
-    '框架开发',
+    '自动化测试工具&框架开发',
+    'web前端开发',
+    'web后端开发(C#/C++)',
 ]
 /**
  * 编程与框架
  */
 export const softwareskill = [
     '.Net C#',
+    'HTML/CSS',
+    'C++',
     'JavaScript',
     'TypeScript',
     'Vue.js',
@@ -37,30 +41,38 @@ export const softwareskill = [
 export const keywords = [
     {
         name: '.NET C#',
-        value: 70
+        value: 60
     },
     {
         name: 'JS/TS',
-        value: 60
+        value: 70
     },
     {
         name: 'VUE',
-        value: 60
+        value: 70
     },
     {
-        name: 'WEB自动化',
+        name: 'WEB自动化测试',
         value: 80
     },
     {
-        name: 'APP自动化',
+        name: 'APP自动化测试',
         value: 60
     },
     {
-        name: '桌面自动化',
+        name: '桌面自动化测试',
         value: 50
     },
     {
-        name: '框架开发',
+        name: '自动化测试工具&框架开发',
         value: 70
-    }
+    },
+    {
+        name: 'web前端开发',
+        value: 70
+    },
+    {
+        name: 'web后端开发(C#/C++)',
+        value: 60
+    },
 ]

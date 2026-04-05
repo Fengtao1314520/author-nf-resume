@@ -20,7 +20,7 @@ export const profile = [
   },
   {
     icon: "mdi-dots-horizontal-circle-outline",
-    text: "具备前端网站（基于Vue.js）和后端系统（基于C#）的开发能力",
+    text: "具备前端网站(基于Vue.js)和后端系统(基于C#)的开发能力",
   },
   {
     icon: "mdi-dots-horizontal-circle-outline",
